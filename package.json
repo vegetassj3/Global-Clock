@@ -1,0 +1,27 @@
+{
+  "name": "global-clock",
+  "version": "1.0.0",
+  "description": "a clock with ist and gmt-5 and other features",
+  "main": "./dist/index.js",
+  "scripts": {
+    "start": "npm run build && electron .",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vegetassj3/Global-Clock.git"
+  },
+  "author": "Raja Sai Devaraju",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vegetassj3/Global-Clock/issues"
+  },
+  "homepage": "https://github.com/vegetassj3/Global-Clock#readme",
+  "devDependencies": {
+    "@types/electron": "^1.6.10",
+    "electron": "^16.0.6"
+  },
+  "dependencies": {
+    "typescript": "^4.5.4"
+  }
+}
