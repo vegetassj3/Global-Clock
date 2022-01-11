@@ -13,12 +13,14 @@ app.on('window-all-closed', function ():void {
 function createWindow(): void{
 
     mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 400,
+        height: 250,
         webPreferences:{
             preload: path.join(__dirname,"preload.js")
         },
-        show:false
+        show:false,
+        autoHideMenuBar: true,
+        frame: false
       });
     
     mainWindow.loadFile('./index.html');

@@ -1,16 +1,20 @@
-.clock {
+.clock,
+.clockBe {
+  display: flex;
   background: #333333;
   padding: 10px;
-  text-align: center;
+  margin: 10px;
   border-radius: 10px;
+  align-items: center;
+  justify-content: space-around;
 }
 
-.clock-time,
-.clock-ampm {
-  font-family: sans-serif;
-  font-size: 30px;
-  color: #eeeeee;
-}
 .clock-time {
   font-size: 48px;
+  color: #eeeeee;
+}
+
+.country {
+  color: #eeeeee;
+  font-size: 20px;
 }

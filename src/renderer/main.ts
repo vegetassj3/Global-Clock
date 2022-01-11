@@ -1,20 +1,16 @@
 class DigitalClock{
 
     element: Element;
-
-    constructor(element:Element){
+    zone:string;
+    constructor(element:Element,zone:string){
         this.element=element;
-        console.log(this.element);
+        this.zone=zone;
     }
 
-    getTimeParts():{hour:number ,minute:number ,seconds:number ,isAm:boolean}{
+    getTimeParts():{time:string }{
         const now=new Date();
-
         return { 
-            hour: now.getHours() % 12|| 12 ,
-            minute : now.getMinutes(), 
-            seconds : now.getSeconds(), 
-            isAm: now.getHours() < 12
+            time:now.toLocaleString("en-US",{timeZone:this.zone,hour12:true,hour:"2-digit",minute:"2-digit"}),
         }
     }
 
@@ -28,25 +24,25 @@ class DigitalClock{
 
     update(){
         const parts=this.getTimeParts();
-        const minutesFormatted=parts.minute.toString().padStart(2,"0");
-        const secondsFormatted=parts.seconds.toString().padStart(2,"0");
-        const timeFormatted=`${parts.hour}:${minutesFormatted}:${secondsFormatted}`;
-        const amPm = parts.isAm? "AM" : "PM";
-
+        const timeFormatted=parts.time;
         const clockTime=this.element.querySelector('.clock-time');
         if(clockTime!=null){
             clockTime.textContent=timeFormatted;
         }
-        const clockAmPm=this.element.querySelector('.clock-ampm');
-        if(clockAmPm!=null){
-            clockAmPm.textContent=amPm;
-        }
+        
     }
 }
 
 const clockElement=document.querySelector(".clock");
 if(clockElement!=null){
-    const clockObject=new DigitalClock(clockElement);
+    const clockObject=new DigitalClock(clockElement,'Asia/Kolkata');
+    clockObject.start();
+    
+}
+
+const clockElementBe=document.querySelector(".clockBe");
+if(clockElementBe!=null){
+    const clockObject=new DigitalClock(clockElementBe,"Canada/Eastern");
     clockObject.start();
     
 }
